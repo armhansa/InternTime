@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.armhansa.app.testaac.R;
+import com.armhansa.app.testaac.model.Product;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +20,11 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.fragment_container, fragment, ProductListFragment.TAG)
                     .commit();
         }
+    }
+
+    public void show(Product product) {
+
+
+
     }
 }
