@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestApplication</string>
+    <string name="change_to_1">Change to 1</string>
+    <string name="change_to_0">Change to 0</string>
+    <string name="change_to_2">Change to 2</string>
+    <string name="change_to_3">Change to 3</string>
+    <string name="change_to_4">Change to 4</string>
+</resources>
