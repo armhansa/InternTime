@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable ArrayList<User> users) {
                 Log.d(TAG, "OnChanged!");
+
                 queryRealm();
             }
         };
