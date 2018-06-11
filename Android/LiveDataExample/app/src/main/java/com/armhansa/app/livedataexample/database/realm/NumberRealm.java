@@ -7,8 +7,8 @@ import io.realm.annotations.Required;
 
 public class NumberRealm extends RealmObject {
 
-    @PrimaryKey @Index
-    private int index;
+//    @PrimaryKey @Index
+//    private int index;
 
     @Required
     private String number;

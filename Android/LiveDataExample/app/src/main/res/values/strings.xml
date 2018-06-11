@@ -5,4 +5,5 @@
     <string name="change_to_2">Change to 2</string>
     <string name="change_to_3">Change to 3</string>
     <string name="change_to_4">Change to 4</string>
+    <string name="isnull">NULL</string>
 </resources>

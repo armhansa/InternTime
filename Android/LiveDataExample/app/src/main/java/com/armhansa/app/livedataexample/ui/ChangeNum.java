@@ -13,6 +13,9 @@ import com.armhansa.app.livedataexample.R;
 import com.armhansa.app.livedataexample.database.realm.NumberRealm;
 import com.armhansa.app.livedataexample.viewmodel.NumberViewModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -45,7 +48,11 @@ public class ChangeNum extends AppCompatActivity {
                     @Override
                     public void onChanged(@Nullable RealmResults<NumberRealm> numberRealms) {
                         if(numberRealms != null && numberRealms.size() != 0) {
-                            text.setText(numberRealms.get(0).getNumber());
+                            StringBuilder listNumber = new StringBuilder();
+                            for(NumberRealm i: numberRealms) {
+                                listNumber.append(i.getNumber()+"\n");
+                            }
+                            text.setText(listNumber);
                         }
                     }
                 };
@@ -76,14 +83,21 @@ public class ChangeNum extends AppCompatActivity {
     }
 
     public void changeNum(int newNum) {
-        realm.beginTransaction();
-        NumberRealm numTmp = realm.createObject(NumberRealm.class);
+        NumberRealm numTmp = new NumberRealm();
         numTmp.setNumber(String.valueOf(newNum));
+        Log.d(TAG, "changeNum: CreateNum"+numTmp.getNumber());
+        realm.beginTransaction();
+        realm.copyToRealm(numTmp);
         realm.commitTransaction();
-
-        RealmResults<NumberRealm> result = realm.where(NumberRealm.class).findAll();
 
         Log.d(TAG, "OnClick: Change To "+myNumber.getMyNum());
 
     }
+
+    @Override
+    protected void onDestroy() {
+        realm.close();
+        super.onDestroy();
+    }
+
 }
